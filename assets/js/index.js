@@ -118,7 +118,10 @@ function Car(color, model, amountOfDoors) {
     this.color = color;
     this.model = model;
     this.amountOfDoors = amountOfDoors;
-    this.velocity = 120;
+    this.accelerate = 30;
+    this.velocity = function () {
+        
+    }
     this.isGoing = function () {
         return this.velocity > 0;
     }
