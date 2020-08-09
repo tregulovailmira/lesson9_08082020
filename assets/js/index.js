@@ -114,27 +114,31 @@
 // country2.area = 11;
 // console.log(country2.getDensity());
 
-function Car(color, model, amountOfDoors) {
+function Car(color, model, amountOfDoors, initialVelocity) {
     this.color = color;
     this.model = model;
     this.amountOfDoors = amountOfDoors;
-    this.accelerate = 30;
-    this.velocity = function () {
-        
-    }
+    this.velocity = initialVelocity;
+    this.accelerate = function () {
+        this.velocity += Number(prompt('Accelerate velocity:'));
+        if (this.velocity < 0) {
+            return this.velocity = 0;
+        }
+        return this.velocity;
+    };
     this.isGoing = function () {
-        return this.velocity > 0;
+        return this.velocity !== 0;
     }
 };
 
-const car1 = new Car('red', 'Ford', '4');
+const car1 = new Car('red', 'Ford', '4', 10);
 console.log(car1);
-console.log(car1.isGoing());
-car1.velocity = 0;
-console.log(car1.isGoing());
+console.log(car1.velocity);
+console.log(car1.accelerate());
+console.log(car1.accelerate());
 
-const car2 = new Car('black', 'Lada Samara', '4');
+const car2 = new Car('black', 'Lada Samara', '4', 0);
 console.log(car2);
-console.log(car2.isGoing());
-car2.velocity = 0;
-console.log(car2.isGoing());
+console.log(car2.velocity);
+console.log(car2.accelerate());
+console.log(car2.accelerate());
